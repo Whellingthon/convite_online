@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Convite 15 Anos - Thaís</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=MedievalSharp&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="phone-container" id="convite">
+        
+        <audio id="musica" loop>
+            <source src="IMG/musica.mp3" type="audio/mpeg">
+        </audio>
+
+        <div id="capa-video-container" onclick="iniciarMagia()">
+            
+            <video id="vid-loop" class="video-capa" autoplay muted loop playsinline>
+                <source src="IMG/video_looping.mp4" type="video/mp4">
+            </video>
+
+            <video id="vid-acao" class="video-capa" muted playsinline style="opacity: 0;">
+                <source src="IMG/video_acao.mp4" type="video/mp4">
+            </video>
+
+            <div class="texto-toque">Toque para iniciar o sonho</div>
+        </div>
+
+        <div id="main-content">
+            <div class="overlay-blue"></div>
+
+            <div class="particles" id="particles-container"></div>
+
+            <div class="mirror-container">
+                <div class="age-text">XV ANOS</div>
+                <div class="name-text">Nome<br>aqui</div>
+
+                <div class="date-row">
+                    <div class="date-item">
+                        <span class="date-big">data</span>
+                        <span class="date-small">aqui</span>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="date-item">
+                        <span class="date-big">20h</span>
+                        <span class="date-small">ÀS 01H</span>
+                    </div>
+                </div>
+
+                <div class="location-text">
+                    Casa Bertolazzi - Santana<br>
+                    Av. Paulo Silva Araújo, 24
+                </div>
+
+                <img src="IMG/sapato.png" class="glass-slipper" alt="Sapatinho">
+            </div>
+
+            <div class="bottom-menu">
+                <a href="https://wa.me/SEUNUMERO" target="_blank" class="menu-item">
+                    <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
+                    <span class="menu-label">Confirmar<br>Presença</span>
+                </a>
+                
+                <a href="#" class="menu-item">
+                    <div class="icon-circle"><i class="fa-solid fa-shoe-prints"></i></div>
+                    <span class="menu-label">Sugestão de<br>Presente</span>
+                </a>
+                
+                <a href="#" class="menu-item">
+                    <div class="icon-circle"><i class="fas fa-female"></i></div>
+                    <span class="menu-label">Dress<br>Code</span>
+                </a>
+                
+                <a href="https://maps.google.com" target="_blank" class="menu-item">
+                    <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                    <span class="menu-label">Ver<br>Rota</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
