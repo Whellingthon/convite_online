@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sugestões de Presente - Caroliny</title>
+    
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fontes do Tema Azul/Medieval -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=MedievalSharp&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/presentes.css">
+</head>
+<body>
+
+    <!-- ID page-container é importante para a transição suave -->
+    <div class="phone-container" id="page-container">
+        
+        <!-- Fundo Azul -->
+        <div class="overlay-blue"></div>
+
+        <!-- Cabeçalho -->
+        <header class="gift-header">
+            <h1 class="gift-title">Presentes Reais</h1>
+            <p class="gift-subtitle">Escolha algo mágico para a debutante</p>
+        </header>
+
+        <!-- Área de Conteúdo (Com Scroll) -->
+        <div class="scroll-content">
+            
+            <!-- Painel de Filtros -->
+            <div id="form-section" class="glass-panel">
+                <h2 class="section-title">O que Vossa Senhoria procura?</h2>
+                
+                <!-- Filtro de Estilo -->
+                <div class="input-group">
+                    <label>Estilo</label>
+                    <div class="tags-container">
+                        <button onclick="selectOption('style', 'romantica', this)" class="tag-btn">Princesa</button>
+                        <button onclick="selectOption('style', 'moderna', this)" class="tag-btn active">Moderna</button>
+                        <button onclick="selectOption('style', 'geek', this)" class="tag-btn">Geek</button>
+                    </div>
+                    <input type="hidden" id="input-style" value="moderna">
+                </div>
+
+                <!-- Filtro de Categoria -->
+                <div class="input-group">
+                    <label>Categoria</label>
+                    <select id="input-category" class="custom-select">
+                        <option value="todos">🌟 Ver Tesouros</option>
+                        <option value="joias">💍 Joias Reais</option>
+                        <option value="beleza">💄 Beleza & Charme</option>
+                        <option value="eletronicos">📱 Artefatos Tech</option>
+                        <option value="quarto">🛏️ Aposentos</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Orçamento -->
+                <div class="input-group">
+                    <label>Investimento Real</label>
+                    <div class="range-wrapper">
+                        <!-- Mínimo R$ 10 para pegar produtos baratos da Shein -->
+                        <input type="range" min="10" max="1000" step="10" value="200" class="custom-range" oninput="updateBudget(this.value)">
+                        <span id="budget-display" class="budget-value">Até R$ 200</span>
+                    </div>
+                    <input type="hidden" id="input-budget" value="200">
+                </div>
+
+                <button onclick="generateSuggestions()" class="btn-gold">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Consultar Oráculo
+                </button>
+            </div>
+
+            <!-- Painel de Resultados (Oculto no início) -->
+            <div id="results-section" class="hidden">
+                <button onclick="resetForm()" class="btn-back">
+                    <i class="fa-solid fa-arrow-left"></i> Voltar à Busca
+                </button>
+                <div id="cards-container">
+                    <!-- Cards serão inseridos aqui pelo JS -->
+                </div>
+            </div>
+
+            <!-- Espaço extra para o rodapé não cobrir conteúdo -->
+            <div style="height: 100px;"></div>
+        </div>
+
+        <!-- Menu Rodapé -->
+        <div class="bottom-menu">
+            <a href="#" onclick="navegarPara('index.html')" class="menu-item">
+                <div class="icon-circle"><i class="fa-solid fa-house"></i></div>
+                <span class="menu-label">Convite</span>
+            </a>
+            
+            <a href="#" class="menu-item active">
+                <div class="icon-circle active"><i class="fa-solid fa-shoe-prints"></i></div>
+                <span class="menu-label">Sugestão de<br>Presente</span>
+            </a>
+            
+            <a href="#" class="menu-item">
+                <div class="icon-circle"><i class="fas fa-female"></i></div>
+                <span class="menu-label">Dress<br>Code</span>
+            </a>
+            
+            <a href="https://maps.app.goo.gl/MgS4fVxHpm9PGuzWA" target="_blank" class="menu-item">
+                <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                <span class="menu-label">Ver<br>Rota</span>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Javascript Inline para evitar erros de referência -->
+    <script src="js/presentes.js">
+  
+    </script>
+</body>
+</html>

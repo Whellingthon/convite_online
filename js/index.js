@@ -81,3 +81,8 @@ function criarParticulas() {
        
     }
 }
+function irParaPresentes() {
+        document.querySelector('.phone-container').style.transition = "opacity 0.5s ease";
+        document.querySelector('.phone-container').style.opacity = "0";
+        setTimeout(() => { window.location.href = "presentes.html"; }, 500);
+    }
