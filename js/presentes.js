@@ -1,12 +1,17 @@
-  function copiarPix() {
-            // Pega o número do telefone
-            const chave = "14998933492"; 
+ 
+        function copiarPix() {
+            const chave = document.getElementById('chavePix').innerText;
             
-            // Copia para a área de transferência
-            navigator.clipboard.writeText(chave).then(() => {
-                alert("Chave Pix copiada com sucesso! \nAgora é só colar no app do seu banco.");
-            }).catch(err => {
-                console.error('Erro ao copiar: ', err);
-                alert("Não foi possível copiar automaticamente. A chave é: " + chave);
-            });
+            // Tenta usar a API moderna de clipboard
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(chave).then(() => {
+                    alert("Chave Pix copiada com sucesso!\nÉ só colar no app do banco.");
+                }).catch(err => {
+                    prompt("Seu navegador bloqueou a cópia automática. Copie abaixo:", chave);
+                });
+            } else {
+                // Fallback para navegadores antigos ou não seguros
+                prompt("Copie a chave Pix abaixo:", chave);
+            }
         }
+    

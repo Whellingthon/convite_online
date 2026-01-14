@@ -1,167 +1,156 @@
-    /* RESET E BASE */
+/* =========================================
+ESTILOS (TEMA AZUL MEDIEVAL)
+========================================= */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: #051e3e;
-            background-image: radial-gradient(circle, #1e3a8a 0%, #020617 100%);
-            font-family: 'Montserrat', sans-serif;
-            color: #fff;
-            min-height: 100vh;
+
+        body { 
+            background-color: #000; 
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start;
+            min-height: 100vh; 
+            font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden;
+        }
+
+        /* Container Principal (Estilo Celular) */
+        .phone-container {
+            width: 100%; max-width: 420px; min-height: 100vh; position: relative;
+            background: url('https://images.unsplash.com/photo-1597843787754-080c2f6d5395?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
+            background-attachment: fixed;
+            box-shadow: 0 0 20px rgba(0,0,100,0.5);
+            padding-bottom: 40px;
+        }
+
+        /* Máscara Azul para leitura */
+        .overlay-blue {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(10, 30, 80, 0.5) 0%, rgba(0, 10, 40, 0.95) 100%);
+            z-index: 0; pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative; z-index: 10;
             padding: 20px;
         }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #c5a059;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        }
-
-        /* CABEÇALHO */
+        /* Cabeçalho */
         header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-            padding-bottom: 20px;
+            text-align: center; margin-top: 30px; margin-bottom: 30px;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 20px;
         }
 
-        h1 {
-            font-family: 'Cinzel', serif;
-            color: #ffd700;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        .page-title {
+            font-family: 'Great Vibes', cursive; font-size: 3rem; color: #fff; 
+            text-shadow: 0 0 10px #87ceeb; margin-bottom: 5px; line-height: 1.1;
         }
 
-        p.subtitle {
-            color: #bfdbfe;
-            font-size: 0.9rem;
+        .page-subtitle {
+            font-family: 'Cinzel', serif; font-size: 0.9rem; color: #ffd700; letter-spacing: 1px;
         }
 
-        /* CATEGORIAS E LISTA */
-        .category-title {
-            font-family: 'Cinzel', serif;
-            color: #c5a059;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* Categorias */
+        .category-header {
+            display: flex; align-items: center; gap: 10px;
+            margin-top: 35px; margin-bottom: 15px;
+            padding-left: 5px;
+        }
+        .category-header i { color: #ffd700; font-size: 1.2rem; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+        .category-header h2 {
+            font-family: 'MedievalSharp', cursive; color: #fff; font-size: 1.4rem; letter-spacing: 1px;
         }
 
+        /* Card de Presente (Simples e Direto) */
         .gift-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-left: 3px solid transparent;
+            background: rgba(12, 45, 120, 0.6); /* Fundo Azul Translúcido */
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 12px;
+            padding: 15px; margin-bottom: 12px;
+            display: flex; justify-content: space-between; align-items: center;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
             transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
 
-        .gift-item:hover {
-            border-left: 3px solid #ffd700;
-            background: rgba(255, 255, 255, 0.15);
+        .gift-info h3 {
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #fff; font-weight: 700; margin-bottom: 4px;
         }
-
-        .gift-name {
-            font-weight: 600;
-            font-size: 0.95rem;
+        .gift-info p {
+            font-family: 'Cinzel', serif; font-size: 0.85rem; color: #ffd700;
         }
-
-        .gift-price {
-            font-size: 0.8rem;
+        .gift-info .size-tag {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.2);
             color: #ffd700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
             margin-top: 4px;
+            border: 1px solid rgba(255, 215, 0, 0.4);
         }
 
-        .btn-link {
-            background-color: #c5a059;
-            color: #000;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
+        .btn-ver {
+            background: linear-gradient(135deg, #b8860b, #ffd700);
+            color: #000; text-decoration: none;
+            padding: 10px 18px; border-radius: 25px;
+            font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: bold;
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
+            white-space: nowrap;
             transition: 0.2s;
         }
+        .btn-ver:active { transform: scale(0.95); }
 
-        .btn-link:hover {
-            background-color: #ffd700;
-            transform: scale(1.05);
-        }
-
-        /* ÁREA DO PIX */
-        .pix-section {
-            margin-top: 40px;
-            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
+        /* Área do Pix (Destaque) */
+        .pix-container {
+            margin-top: 60px;
+            background: rgba(0, 0, 0, 0.5);
             border: 2px dashed #c5a059;
+            border-radius: 15px;
+            padding: 30px 20px; text-align: center;
+            position: relative;
+        }
+        /* Ícone decorativo no Pix */
+        .pix-icon-top {
+            position: absolute; top: -25px; left: 50%; transform: translateX(-50%);
+            background: #000; padding: 0 10px; border-radius: 50%;
+            color: #ffd700; font-size: 2rem;
         }
 
         .pix-title {
-            font-family: 'Cinzel', serif;
-            color: #ffd700;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+            font-family: 'MedievalSharp', cursive; color: #ffd700; font-size: 1.6rem; margin-bottom: 10px; margin-top: 10px;
         }
+        .pix-desc { font-size: 0.9rem; color: #e0e0e0; margin-bottom: 20px; line-height: 1.5; }
 
-        .qrcode-img {
-            width: 180px;
-            height: 180px;
-            background-color: #fff; /* Fundo branco caso a imagem falhe */
-            margin: 0 auto 15px auto;
-            border-radius: 10px;
-            padding: 5px;
-            display: block;
+        .qrcode-box {
+            width: 200px; height: 200px; background: #fff;
+            margin: 0 auto 20px auto; padding: 5px; border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
+        .qrcode-img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
         .pix-key {
-            background: rgba(0,0,0,0.3);
-            padding: 10px;
-            border-radius: 5px;
-            font-family: monospace;
-            font-size: 1.1rem;
-            color: #ffd700;
-            margin-bottom: 15px;
-            word-break: break-all;
+            background: rgba(255,255,255,0.1); padding: 12px; border-radius: 8px;
+            color: #ffd700; font-family: monospace; font-size: 1.2rem; margin-bottom: 15px;
+            border: 1px solid rgba(197, 160, 89, 0.3); word-break: break-all;
         }
 
         .btn-copy {
-            background: transparent;
-            border: 1px solid #ffd700;
-            color: #ffd700;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            background: transparent; border: 2px solid #ffd700; color: #ffd700;
+            padding: 12px 25px; border-radius: 30px; cursor: pointer;
+            font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 0.95rem;
+            display: inline-flex; align-items: center; gap: 10px; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1px;
         }
+        .btn-copy:active { background: #ffd700; color: #000; }
 
-        .btn-copy:active {
-            background: #ffd700;
-            color: #000;
+        /* Botão Voltar */
+        .back-link {
+            display: block; text-align: center; margin-top: 50px; margin-bottom: 20px;
+            color: #87ceeb; text-decoration: none; font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            opacity: 0.8;
         }
-
-        /* RODAPÉ */
-        .back-btn {
-            display: block;
-            text-align: center;
-            margin-top: 30px;
-            color: #bfdbfe;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-    
+        
+        /* Espaçamento extra no fim */
+        .spacer { height: 50px; }

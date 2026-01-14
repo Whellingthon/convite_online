@@ -2,95 +2,135 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lista de Presentes - Caroliny</title>
     
-    <!-- Fontes e Ícones -->
+    <!-- Ícones e Fontes (Identidade Visual do Convite) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=MedievalSharp&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/presentes.css">
     
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <i class="fa-solid fa-crown" style="font-size: 2rem; color: #ffd700; margin-bottom: 10px;"></i>
-            <h1>Lista de Presentes</h1>
-             <p class="subtitle">Sua presença é o maior presente! <br>Mas se quiser mimar a Caroliny:</p>
-        </header>
+    <div class="phone-container">
+        <div class="overlay-blue"></div>
 
-        <!-- CATEGORIA 1: ACESSÓRIOS -->
-        <h3 class="category-title"><i class="fa-solid fa-gem"></i> Joias & Acessórios</h3>
-        
-        <div class="gift-item">
-            <div>
-                <div class="gift-name">Berloque de Prata</div>
-                <div class="gift-price">Aprox. R$ 25,00</div>
-            </div>
-            <a href="LINK_DA_SHEIN_AQUI" target="_blank" class="btn-link">Ver Opção</a>
-        </div>
-
-        <div class="gift-item">
-            <div>
-                <div class="gift-name">Colar Ponto de Luz</div>
-                <div class="gift-price">Aprox. R$ 30,00</div>
-            </div>
-            <a href="LINK_DA_SHEIN_AQUI" target="_blank" class="btn-link">Ver Opção</a>
-        </div>
-
-        <!-- CATEGORIA 2: BELEZA -->
-        <h3 class="category-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Beleza</h3>
-
-        <div class="gift-item">
-            <div>
-                <div class="gift-name">Kit Skincare</div>
-                <div class="gift-price">Aprox. R$ 40,00</div>
-            </div>
-            <a href="LINK_DA_SHEIN_AQUI" target="_blank" class="btn-link">Ver Opção</a>
-        </div>
-
-        <div class="gift-item">
-            <div>
-                <div class="gift-name">Maleta de Maquiagem</div>
-                <div class="gift-price">Aprox. R$ 145,00</div>
-            </div>
-            <a href="LINK_DA_SHEIN_AQUI" target="_blank" class="btn-link">Ver Opção</a>
-        </div>
-
-        <!-- CATEGORIA 3: QUARTO -->
-        <h3 class="category-title"><i class="fa-solid fa-bed"></i> Para o Quarto</h3>
-
-        <div class="gift-item">
-            <div>
-                <div class="gift-name">Luminária Lua 3D</div>
-                <div class="gift-price">Aprox. R$ 20,00</div>
-            </div>
-            <a href="LINK_DA_SHEIN_AQUI" target="_blank" class="btn-link">Ver Opção</a>
-        </div>
-
-        <!-- ÁREA DO PIX -->
-        <div class="pix-section">
-            <h2 class="pix-title">Presente via Pix</h2>
-            <p style="font-size: 0.9rem; margin-bottom: 15px;">Prefere dar a liberdade dela escolher? <br>Envie qualquer valor com amor!</p>
+        <div class="content-wrapper">
             
-            <!-- COLOQUE SUA IMAGEM DO QR CODE NA PASTA IMG COM O NOME 'qrcode.png' -->
-            <!-- Se não tiver imagem, pode apagar a tag <img> abaixo -->
-            <img src="IMG/qrcode.png" alt="QR Code Pix" class="qrcode-img" onerror="this.style.display='none'">
-            
-            <div class="pix-key" id="chavePix">14998933492</div>
-            
-            <button class="btn-copy" onclick="copiarPix()">
-                <i class="fa-regular fa-copy"></i> Copiar Chave Pix
-            </button>
-        </div>
+            <header>
+                <h1 class="page-title">Sugestões Reais</h1>
+                <p class="page-subtitle">O que faria a Caroliny feliz:</p>
+            </header>
 
-        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Voltar ao Convite</a>
+            <div class="category-header">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h2>Beleza & Perfumaria</h2>
+            </div>
+
+            <div class="gift-item">
+                <div class="gift-info">
+                    <h3>O Boticário</h3>
+                    <p>Perfumes ou Kits</p>
+                </div>
+                <a href="https://www.boticario.com.br/" target="_blank" class="btn-ver">Ver Site</a>
+            </div>
+
+            <div class="gift-item">
+                <div class="gift-info">
+                    <h3>Maquiagem</h3>
+                    <p>Itens variados</p>
+                </div>
+                <!-- Link de busca genérica para facilitar -->
+                <a href="https://www.google.com/search?q=kit+maquiagem+presente" target="_blank" rel="noopener" class="btn-ver">Buscar Opções</a>
+            </div>
+
+            <!-- CATEGORIA: MODA (P / 36) -->
+            <div class="category-header">
+                <i class="fa-solid fa-shirt"></i>
+                <h2>Moda & Estilo</h2>
+            </div>
+
+            <div class="gift-item">
+                <div class="gift-info">
+                    <h3>Roupas</h3>
+                    <span class="size-tag">Tamanho P ou 36</span>
+                </div>
+                <a href="https://www.lojasrenner.com.br/c/feminino/roupas?facets=size_f_br_calcados%3A36%7Csize_f_br_vestuario%3AP" target="_blank" class="btn-ver">Ver Opções</a>
+            </div>
+
+            <div class="gift-item">
+                <div class="gift-info">
+                    <h3>Bolsas</h3>
+                    <p>Modelos diversos</p>
+                </div>
+                <a href="https://www.dafiti.com.br/bolsas-e-acessorios/bolsas/" target="_blank" class="btn-ver">Ver Modelos</a>
+            </div>
+
+            <div class="gift-item">
+                <div class="gift-info">
+                    <h3>Jóias</h3>
+                    <p>Acessórios delicados</p>
+                </div>
+                <a href="https://www.vivara.com.br/life" target="_blank" class="btn-ver">Ver Inspiração</a>
+            </div>
+
+            <!-- CATEGORIA: CALÇADOS (36) -->
+            <div class="category-header">
+                <i class="fa-solid fa-shoe-prints"></i>
+                <h2>Calçados</h2>
+            </div>
+
+            <div class="gift-item">
+                <div class="gift-info">
+                    <h3>Sapatos / Tênis</h3>
+                    <span class="size-tag">Numeração 36</span>
+                </div>
+                <a href="https://www.anacapri.com.br/c/sapatos?q=%3Arelevance%3Asize%3A36" target="_blank" class="btn-ver">Ver Sapatos</a>
+            </div>
+
+            <!-- CATEGORIA: DANÇA -->
+            <div class="category-header">
+                <i class="fa-solid fa-star"></i>
+                <h2>Paixão: Balé</h2>
+            </div>
+
+            <div class="gift-item">
+                <div class="gift-info">
+                    <h3>Só Dança</h3>
+                    <p>Roupas de Balé ou Acessórios</p>
+                </div>
+                <a href="https://sodanca.com.br/" target="_blank" class="btn-ver">Site Oficial</a>
+            </div>
+
+           
+            <div class="pix-container">
+                <div class="pix-icon-top"><i class="fa-brands fa-pix"></i></div>
+                <h2 class="pix-title">Presente via Pix</h2>
+                <p class="pix-desc">Prefere dar a liberdade para ela escolher?<br>Envie qualquer valor com carinho!</p>
+                
+                <!-- Certifique-se que o arquivo qrcode.png existe na pasta IMG -->
+                <div class="qrcode-box">
+                    <img src="IMG/qrcode.png" alt="QR Code Pix" class="qrcode-img" onerror="this.parentElement.style.display='none';">
+                </div>
+
+                <div class="pix-key" id="chavePix">14998933492</div>
+
+                <button class="btn-copy" onclick="copiarPix()">
+                    <i class="fa-regular fa-copy"></i> Copiar Chave
+                </button>
+            </div>
+
+            <a href="index.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Voltar ao Convite
+            </a>
+
+            <div class="spacer"></div>
+
+        </div>
     </div>
 
-    <script src="js/presentes.js">
-      
-    </script>
+    <script src="js/presentes.js"></script>
 
 </body>
 </html>
