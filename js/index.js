@@ -1,5 +1,3 @@
-// js/index.js
-
 let jaIniciou = false;
 
 function iniciarMagia() {
@@ -10,31 +8,38 @@ function iniciarMagia() {
     // Pega os elementos do HTML
     const vidLoop = document.getElementById('vid-loop');
     const vidAcao = document.getElementById('vid-acao');
-    const texto = document.querySelector('.texto-toque');
-    const musica = document.getElementById('musica'); // <--- Importante!
+    const textoToque = document.querySelector('.texto-toque');
+    const fraseMagica = document.getElementById('frase-magica');
+    const musica = document.getElementById('musica');
 
     console.log("Iniciando a magia...");
 
-    // 1. Esconde o vídeo de loop e o texto
+    // 1. Esconde o vídeo de loop e o texto de toque
     vidLoop.style.opacity = '0';
-    if(texto) texto.style.opacity = '0';
+    if(textoToque) textoToque.style.opacity = '0'; // O texto some imediatamente
     
-    // 2. Mostra e toca o vídeo de ação
+    // 2. MOSTRA A NOVA FRASE
+    if(fraseMagica) {
+        fraseMagica.style.opacity = '1'; // A frase aparece suavemente (definido no CSS)
+        // Pequena animação de zoom para dar ênfase
+        fraseMagica.style.transform = "translate(-50%, -50%) scale(1.1)";
+        fraseMagica.style.transition = "opacity 1.5s ease, transform 3s ease";
+    }
+    
+    // 3. Mostra e toca o vídeo de ação
     vidAcao.style.opacity = '1';
     vidAcao.play().catch(e => console.error("Erro ao tocar vídeo de ação:", e));
 
-    // 3. Tenta tocar a música
+    // 4. Tenta tocar a música
     if (musica) {
-        musica.volume = 0.5; // Volume em 50%
-        musica.play()
-            .then(() => console.log("Música tocando!"))
-            .catch(e => {
-                console.error("Erro na música:", e);
-                // Dica: Se der erro aqui, verifique o nome do arquivo na pasta IMG
-            });
+        musica.volume = 0.5;
+        musica.play().catch(e => {
+            console.error("Erro na música:", e);
+        });
     }
 
-    // 4. Quando o vídeo de ação acabar, abre o convite
+    // 5. Quando o vídeo de ação acabar, abre o convite
+    // A frase mágica sumirá junto com o container do vídeo (que recebe opacity 0)
     vidAcao.onended = function() {
         console.log("Vídeo acabou. Abrindo convite.");
         abrirConviteFinal();
@@ -44,10 +49,10 @@ function iniciarMagia() {
 function abrirConviteFinal() {
     const container = document.getElementById('convite');
     
-    // Adiciona a classe CSS que revela o texto
+    // Adiciona a classe CSS que revela o texto e esconde a capa
     container.classList.add('aberto');
     
-    // Solta as partículas
+    // Solta as partículas no fundo
     criarParticulas();
 }
 
@@ -55,12 +60,10 @@ function criarParticulas() {
     const container = document.getElementById('convite');
     const cores = ['#FFD700', '#FDB931', '#FFFFFF', '#FFFACD'];
 
-    // Reduzi para 40 para não pesar, já que elas nunca somem
     for(let i=0; i<40; i++) {
         let p = document.createElement('div');
         p.className = 'particula';
         
-        // Tamanho variado
         const tamanho = Math.random() * 8 + 4 + 'px';
         p.style.width = tamanho;
         p.style.height = tamanho;
@@ -68,21 +71,11 @@ function criarParticulas() {
         p.style.backgroundColor = cores[Math.floor(Math.random() * cores.length)];
         p.style.left = Math.random() * 100 + '%';
         
-        // Duração: Algumas sobem rápido (5s), outras devagar (12s)
         const duracao = Math.random() * 7 + 5;
         p.style.animationDuration = duracao + 's';
         
-        // O SEGREDO DO LOOP PERFEITO: Delay Negativo
-        // Faz a partícula começar em uma altura aleatória da tela
         p.style.animationDelay = '-' + (Math.random() * 10) + 's';
         
         container.appendChild(p);
-        
-       
     }
 }
-function irParaPresentes() {
-        document.querySelector('.phone-container').style.transition = "opacity 0.5s ease";
-        document.querySelector('.phone-container').style.opacity = "0";
-        setTimeout(() => { window.location.href = "presentes.html"; }, 500);
-    }

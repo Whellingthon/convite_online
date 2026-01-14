@@ -8,6 +8,8 @@ body { background-color: #000; display: flex; justify-content: center; align-ite
 .phone-container {
     width: 100%; max-width: 420px; height: 100vh; position: relative;
     background: #000; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,100,0.5);
+    /* Transição suave para saída da página */
+    transition: opacity 0.5s ease;
 }
 .medievalsharp-regular {
   font-family: "MedievalSharp", cursive;
@@ -29,75 +31,85 @@ body { background-color: #000; display: flex; justify-content: center; align-ite
     object-fit: cover; transition: opacity 0.5s ease;
 }
 
-/* AJUSTE FEITO AQUI: Texto mais robusto e visível */
-/* ... resto do código acima ... */
-
-/* AJUSTE FEITO: Fonte MedievalSharp aplicada */
+/* Texto Inicial (Pisca) */
 .texto-toque {
     position: absolute; bottom: 80px; width: 100%; text-align: center;
-    
-    /* AQUI ESTÁ A MÁGICA */
     font-family: 'MedievalSharp', cursive; 
-    
-    font-size: 1.4rem; /* Aumentei um tiquinho pois essa fonte é levemente menor */
-    letter-spacing: 2px; /* Espaçamento ajustado para estilo medieval */
+    font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase; 
     text-transform: uppercase; 
-    color: #ffd700; 
-    z-index: 100;
-    
-    /* Sombra ajustada para garantir leitura */
+    color: #ffd700; z-index: 100;
     text-shadow: 2px 2px 0px #000, 0 0 15px rgba(255, 215, 0, 0.5);
-    
+    transition: opacity 0.5s ease;
     animation: piscar 2s infinite alternate;
+}
+
+
+/* --- NOVA FRASE MÁGICA --- */
+.frase-magica {
+    position: absolute; 
+    /* Mudamos de 50% para 60% para descer um pouco o texto */
+    top: 60%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+    
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem; /* Aumentei um pouco para destaque */
+    line-height: 1.2;
+    color: #fff; /* Cor do texto (Branco) */
+    
+    /* Borda preta forte para leitura perfeita */
+    text-shadow: 
+        3px 3px 0 #000,
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000,
+        0 0 15px #ffd700; /* Brilho dourado atrás da borda preta */
+        
+    z-index: 101;
+    
+    opacity: 0; /* Começa invisível */
+    transition: opacity 1.5s ease; /* Aparece devagar */
+    pointer-events: none; /* Permite clicar no vídeo se necessário */
+    display: block; /* Garante que o elemento seja renderizado */
 }
 
 @keyframes piscar { 0% { opacity: 0.6; } 100% { opacity: 1; } }
 
-/* ... resto do código abaixo ... */
 
 /* =========================================
-   CAMADA 2: O CONVITE FINAL (LAYOUT NOVO)
+   CAMADA 2: O CONVITE FINAL
+/* ... existing code ... */
+
+
+/* =========================================
+   CAMADA 2: O CONVITE FINAL
    ========================================= */
 #main-content {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    /* Imagem de Fundo do Castelo */
     background: url('https://images.unsplash.com/photo-1597843787754-080c2f6d5395?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
-    
-    /* COMEÇA INVISÍVEL */
-    opacity: 0; 
-    pointer-events: none;
-    z-index: 1;
-    transition: opacity 2s ease 1s; /* Demora 1s para começar a aparecer */
-    
+    opacity: 0; pointer-events: none; z-index: 1;
+    transition: opacity 2s ease 1s; 
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 
-/* === A MÁGICA: QUANDO O JS ADICIONA A CLASSE .aberto === */
-.phone-container.aberto #capa-video-container {
-    opacity: 0; pointer-events: none;
-}
-.phone-container.aberto #main-content {
-    opacity: 1; pointer-events: auto; z-index: 100;
-}
+.phone-container.aberto #capa-video-container { opacity: 0; pointer-events: none; }
+.phone-container.aberto #main-content { opacity: 1; pointer-events: auto; z-index: 100; }
 
-/* Estilos do Layout */
 .overlay-blue {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: radial-gradient(circle, rgba(10, 30, 80, 0.4) 0%, rgba(0, 10, 40, 0.95) 100%);
     z-index: 0;
 }
 
-/* MOLDURA DE VIDRO */
 .mirror-container {
-    position: relative; z-index: 10;
-    width: 85%; max-width: 380px;
-    padding: 30px 20px;
-    margin-bottom: 80px;
-    
+    position: relative; z-index: 10; width: 85%; max-width: 380px;
+    padding: 30px 20px; margin-bottom: 80px;
     border: 3px solid #c5a059; border-radius: 20px;
-    background: rgba(12, 45, 120, 0.65); /* Azul Transparente */
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    background: rgba(12, 45, 120, 0.65);
+    -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px);
     box-shadow: 0 0 20px rgba(197, 160, 89, 0.6), inset 0 0 40px rgba(0,0,0,0.6);
     text-align: center; color: #fff;
 }
@@ -105,15 +117,10 @@ body { background-color: #000; display: flex; justify-content: center; align-ite
     content: '⚜'; font-size: 2rem; color: #c5a059; display: block; margin-bottom: 5px; text-shadow: 0 0 5px gold;
 }
 
-/* Tipografia */
-.age-text { font-family: 'MedievalSharp', cursive;  font-size: 0.9rem; letter-spacing: 3px; color: #eee; margin-bottom: 5px; }
-.name-text { 
-    font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: #fff; 
-    text-shadow: 0 0 10px #87ceeb; margin-bottom: 20px; line-height: 1.1; 
-}
-.location-text {font-family: 'MedievalSharp', cursive;  font-size: 0.85rem; color: #e0e0e0; line-height: 1.4; margin-top: 15px;}
+.age-text { font-family: 'MedievalSharp', cursive; font-size: 0.9rem; letter-spacing: 3px; color: #eee; margin-bottom: 5px; }
+.name-text { font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: #fff; text-shadow: 0 0 10px #87ceeb; margin-bottom: 20px; line-height: 1.1; }
+.location-text { font-family: 'MedievalSharp', cursive; font-size: 0.85rem; color: #e0e0e0; line-height: 1.4; margin-top: 15px; }
 
-/* Data */
 .date-row {
     display: flex; justify-content: center; align-items: center; gap: 15px;
     color: #ffd700; margin-bottom: 10px; font-family: 'Cinzel', serif;
@@ -125,20 +132,16 @@ body { background-color: #000; display: flex; justify-content: center; align-ite
 .date-small { font-size: 0.6rem; letter-spacing: 1px; }
 .separator { width: 1px; height: 30px; background: #fff; opacity: 0.5; }
 
-/* Sapatinho */
 .glass-slipper {
     position: absolute; bottom: -25px; right: -15px; width: 110px;
     filter: drop-shadow(0 0 10px rgba(255,255,255,0.8)); transform: rotate(-10deg);
 }
 
-/* Menu Rodapé */
 .bottom-menu {
     position: absolute; bottom: 30px; left: 0; width: 100%;
     display: flex; justify-content: space-evenly; align-items: flex-start; z-index: 20;
 }
-.menu-item {
-    display: flex; flex-direction: column; align-items: center; width: 70px; text-decoration: none; color: #fff;
-}
+.menu-item { display: flex; flex-direction: column; align-items: center; width: 70px; text-decoration: none; color: #fff; }
 .icon-circle {
     width: 50px; height: 50px;
     background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255,255,255,0.5);

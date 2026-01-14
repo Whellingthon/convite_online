@@ -1,209 +1,167 @@
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body { 
-            background-color: #000; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
-            font-family: 'Montserrat', sans-serif; 
-            overflow: hidden; 
-        }
-
-        /* Container Principal com Animação de Entrada */
-        .phone-container {
-            width: 100%; max-width: 420px; height: 100vh; position: relative;
-            background: url('https://images.unsplash.com/photo-1597843787754-080c2f6d5395?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
-            overflow: hidden; 
-            box-shadow: 0 0 20px rgba(0,0,100,0.5);
-            
-            /* ANIMAÇÃO SUAVE DE ENTRADA */
-            opacity: 0;
-            animation: fadeInPage 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeInPage {
-            from { opacity: 0; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Máscara Azul Escura */
-        .overlay-blue {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(10, 30, 80, 0.4) 0%, rgba(0, 10, 40, 0.95) 100%);
-            z-index: 0; pointer-events: none;
-        }
-
-        /* =========================================
-           PARTÍCULAS MÁGICAS (NOVO)
-           ========================================= */
-        .particula {
-            position: absolute; 
-            border-radius: 50%; 
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-            mix-blend-mode: screen; 
-            pointer-events: none; 
-            animation: flutuar linear infinite; 
-            opacity: 0;
-            z-index: 5; /* Fica atrás do conteúdo, mas na frente do fundo */
-        }
-
-        @keyframes flutuar {
-            0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            20% { opacity: 1; transform: translateY(80vh) scale(1); }
-            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
-        }
-
-        /* =========================================
-           ESTILOS MEDIEVAIS / REALEZA
-           ========================================= */
-
-        /* Header */
-        .gift-header {
-            position: relative; z-index: 10; text-align: center; margin-top: 30px; margin-bottom: 20px;
-        }
-        .gift-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3rem; color: #fff; 
-            text-shadow: 0 0 10px #87ceeb; margin-bottom: 5px;
-        }
-        .gift-subtitle {
-            font-family: 'Cinzel', serif; font-size: 0.8rem; color: #ffd700; letter-spacing: 2px;
-        }
-
-        /* Área de Scroll */
-        .scroll-content {
-            position: relative; z-index: 10; height: calc(100vh - 100px); overflow-y: auto;
-            padding: 0 20px;
-            scrollbar-width: none;
-        }
-        .scroll-content::-webkit-scrollbar { display: none; }
-
-        /* Painel de Vidro (Glassmorphism) */
-        .glass-panel {
-            background: rgba(12, 45, 120, 0.5); /* Azul translúcido */
-            border: 2px solid #c5a059; /* Borda Dourada */
-            border-radius: 20px;
-            padding: 25px 20px; margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 20px rgba(0,0,0,0.6), inset 0 0 20px rgba(255, 215, 0, 0.1);
-        }
-
-        .section-title {
-            font-family: 'MedievalSharp', cursive; color: #ffd700; text-align: center; margin-bottom: 25px;
-            border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px;
-            font-size: 1.2rem; letter-spacing: 1px;
-        }
-
-        /* Inputs & Labels */
-        .input-group { margin-bottom: 25px; }
-        .input-group label {
-            display: block; color: #bfdbfe; font-size: 0.9rem; margin-bottom: 10px; font-family: 'Cinzel', serif; font-weight: bold;
-        }
-
-        /* Botões de Tag */
-        .tags-container { display: flex; gap: 8px; justify-content: center; }
-        .tag-btn {
-            background: rgba(0, 0, 0, 0.4); 
-            border: 1px solid #bfdbfe; color: #fff;
-            padding: 10px 15px; border-radius: 25px; cursor: pointer; transition: 0.3s;
-            font-family: 'Montserrat', sans-serif; font-size: 0.8rem;
-        }
-        .tag-btn.active {
-            background: #c5a059; border-color: #ffd700; color: #000; font-weight: bold;
-            box-shadow: 0 0 10px rgba(197, 160, 89, 0.6);
-        }
-
-        /* Select Estilizado */
-        .custom-select {
-            width: 100%; padding: 12px; 
-            background: rgba(0,0,0,0.6); 
-            border: 1px solid #c5a059;
-            color: #fff; border-radius: 10px; outline: none; 
+    /* RESET E BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #051e3e;
+            background-image: radial-gradient(circle, #1e3a8a 0%, #020617 100%);
             font-family: 'Montserrat', sans-serif;
-        }
-        .custom-select option { background: #000; color: #ffd700; }
-
-        /* Slider (Range) */
-        .range-wrapper { text-align: center; }
-        .custom-range {
-            width: 100%; -webkit-appearance: none; height: 4px; background: rgba(255,255,255,0.3); border-radius: 5px; outline: none;
-        }
-        .custom-range::-webkit-slider-thumb {
-            -webkit-appearance: none; width: 22px; height: 22px; 
-            background: #ffd700; border: 2px solid #c5a059;
-            border-radius: 50%; cursor: pointer;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-        }
-        .budget-value {
-            display: block; margin-top: 12px; color: #ffd700; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Botão Dourado Principal */
-        .btn-gold {
-            width: 100%; padding: 15px; 
-            background: linear-gradient(135deg, #b8860b, #ffd700, #b8860b);
-            background-size: 200% auto;
-            border: 1px solid #fff; border-radius: 12px; 
-            color: #000; font-weight: bold; font-size: 1rem;
-            cursor: pointer; font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4); 
-            transition: 0.5s;
-        }
-        .btn-gold:hover { background-position: right center; box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
-
-        .btn-back {
-            background: transparent; border: none; color: #bfdbfe; margin-bottom: 15px; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; gap: 5px;
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #c5a059;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
-        /* Cards de Resultado */
-        .gift-card {
-            display: flex; align-items: center; gap: 15px;
-            background: rgba(0, 0, 0, 0.6); 
-            border: 1px solid rgba(197, 160, 89, 0.4);
-            border-radius: 12px; padding: 15px; margin-bottom: 12px;
-            animation: fadeInUp 0.5s ease;
+        /* CABEÇALHO */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            padding-bottom: 20px;
         }
 
-        .gift-icon {
-            width: 50px; height: 50px; background: rgba(197, 160, 89, 0.15);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 1.6rem; color: #ffd700; border: 1px solid #c5a059;
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
-        .gift-info h4 { color: #fff; font-size: 1rem; margin-bottom: 4px; font-family: 'Montserrat', sans-serif; }
-        .gift-info p { color: #ffd700; font-weight: bold; font-size: 0.9rem; font-family: 'Cinzel', serif; }
-        .gift-buy-btn {
-            margin-left: auto; background: #c5a059; color: #000; width: 35px; height: 35px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            text-decoration: none; font-size: 0.9rem; transition: 0.3s;
+        p.subtitle {
+            color: #bfdbfe;
+            font-size: 0.9rem;
         }
-        .gift-buy-btn:hover { background: #fff; transform: scale(1.1); }
 
-        .hidden { display: none; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* =========================================
-           MENU RODAPÉ (LADO A LADO)
-           ========================================= */
-        .bottom-menu {
-            position: absolute; bottom: 30px; left: 0; width: 100%;
-            display: flex; flex-direction: row; justify-content: space-evenly; align-items: flex-start; z-index: 20;
+        /* CATEGORIAS E LISTA */
+        .category-title {
+            font-family: 'Cinzel', serif;
+            color: #c5a059;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .menu-item { display: flex; flex-direction: column; align-items: center; width: 70px; text-decoration: none; color: #fff; transition: 0.3s; }
-        .menu-item:hover { transform: translateY(-3px); }
 
-        .icon-circle {
-            width: 50px; height: 50px;
-            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.4);
-            border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            font-size: 1.3rem; margin-bottom: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        .gift-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid transparent;
             transition: 0.3s;
         }
 
-        .menu-item.active .icon-circle {
-            background: #c5a059; color: #000; border-color: #ffd700;
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.6);
+        .gift-item:hover {
+            border-left: 3px solid #ffd700;
+            background: rgba(255, 255, 255, 0.15);
         }
-        .menu-item.active .menu-label { color: #ffd700; font-weight: bold; }
-        .menu-label { font-size: 0.6rem; text-align: center; text-transform: uppercase; text-shadow: 1px 1px 2px #000; }
+
+        .gift-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .gift-price {
+            font-size: 0.8rem;
+            color: #ffd700;
+            margin-top: 4px;
+        }
+
+        .btn-link {
+            background-color: #c5a059;
+            color: #000;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-link:hover {
+            background-color: #ffd700;
+            transform: scale(1.05);
+        }
+
+        /* ÁREA DO PIX */
+        .pix-section {
+            margin-top: 40px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px dashed #c5a059;
+        }
+
+        .pix-title {
+            font-family: 'Cinzel', serif;
+            color: #ffd700;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .qrcode-img {
+            width: 180px;
+            height: 180px;
+            background-color: #fff; /* Fundo branco caso a imagem falhe */
+            margin: 0 auto 15px auto;
+            border-radius: 10px;
+            padding: 5px;
+            display: block;
+        }
+
+        .pix-key {
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            word-break: break-all;
+        }
+
+        .btn-copy {
+            background: transparent;
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-copy:active {
+            background: #ffd700;
+            color: #000;
+        }
+
+        /* RODAPÉ */
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #bfdbfe;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    

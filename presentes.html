@@ -2,120 +2,95 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sugestões de Presente - Caroliny</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presentes - Caroliny</title>
     
-    <!-- Ícones FontAwesome -->
+    <!-- Fontes e Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Fontes do Tema Azul/Medieval -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=MedievalSharp&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/presentes.css">
+    
 </head>
 <body>
 
-    <!-- ID page-container é importante para a transição suave -->
-    <div class="phone-container" id="page-container">
-        
-        <!-- Fundo Azul -->
-        <div class="overlay-blue"></div>
-
-        <!-- Cabeçalho -->
-        <header class="gift-header">
-            <h1 class="gift-title">Presentes Reais</h1>
-            <p class="gift-subtitle">Escolha algo mágico para a debutante</p>
+    <div class="container">
+        <header>
+            <i class="fa-solid fa-crown" style="font-size: 2rem; color: #ffd700; margin-bottom: 10px;"></i>
+            <h1>Lista de Presentes</h1>
+             <p class="subtitle">Sua presença é o maior presente! <br>Mas se quiser mimar a Caroliny:</p>
         </header>
 
-        <!-- Área de Conteúdo (Com Scroll) -->
-        <div class="scroll-content">
-            
-            <!-- Painel de Filtros -->
-            <div id="form-section" class="glass-panel">
-                <h2 class="section-title">O que Vossa Senhoria procura?</h2>
-                
-                <!-- Filtro de Estilo -->
-                <div class="input-group">
-                    <label>Estilo</label>
-                    <div class="tags-container">
-                        <button onclick="selectOption('style', 'romantica', this)" class="tag-btn">Princesa</button>
-                        <button onclick="selectOption('style', 'moderna', this)" class="tag-btn active">Moderna</button>
-                        <button onclick="selectOption('style', 'geek', this)" class="tag-btn">Geek</button>
-                    </div>
-                    <input type="hidden" id="input-style" value="moderna">
-                </div>
-
-                <!-- Filtro de Categoria -->
-                <div class="input-group">
-                    <label>Categoria</label>
-                    <select id="input-category" class="custom-select">
-                        <option value="todos">🌟 Ver Tesouros</option>
-                        <option value="joias">💍 Joias Reais</option>
-                        <option value="beleza">💄 Beleza & Charme</option>
-                        <option value="eletronicos">📱 Artefatos Tech</option>
-                        <option value="quarto">🛏️ Aposentos</option>
-                    </select>
-                </div>
-
-                <!-- Filtro de Orçamento -->
-                <div class="input-group">
-                    <label>Investimento Real</label>
-                    <div class="range-wrapper">
-                        <!-- Mínimo R$ 10 para pegar produtos baratos da Shein -->
-                        <input type="range" min="10" max="1000" step="10" value="200" class="custom-range" oninput="updateBudget(this.value)">
-                        <span id="budget-display" class="budget-value">Até R$ 200</span>
-                    </div>
-                    <input type="hidden" id="input-budget" value="200">
-                </div>
-
-                <button onclick="generateSuggestions()" class="btn-gold">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Consultar Oráculo
-                </button>
+        <!-- CATEGORIA 1: ACESSÓRIOS -->
+        <h3 class="category-title"><i class="fa-solid fa-gem"></i> Joias & Acessórios</h3>
+        
+        <div class="gift-item">
+            <div>
+                <div class="gift-name">Berloque de Prata</div>
+                <div class="gift-price">Aprox. R$ 25,00</div>
             </div>
-
-            <!-- Painel de Resultados (Oculto no início) -->
-            <div id="results-section" class="hidden">
-                <button onclick="resetForm()" class="btn-back">
-                    <i class="fa-solid fa-arrow-left"></i> Voltar à Busca
-                </button>
-                <div id="cards-container">
-                    <!-- Cards serão inseridos aqui pelo JS -->
-                </div>
-            </div>
-
-            <!-- Espaço extra para o rodapé não cobrir conteúdo -->
-            <div style="height: 100px;"></div>
+            <a href="LINK_DA_SHEIN_AQUI" target="_blank" class="btn-link">Ver Opção</a>
         </div>
 
-        <!-- Menu Rodapé -->
-        <div class="bottom-menu">
-            <a href="#" onclick="navegarPara('index.html')" class="menu-item">
-                <div class="icon-circle"><i class="fa-solid fa-house"></i></div>
-                <span class="menu-label">Convite</span>
-            </a>
-            
-            <a href="#" class="menu-item active">
-                <div class="icon-circle active"><i class="fa-solid fa-shoe-prints"></i></div>
-                <span class="menu-label">Sugestão de<br>Presente</span>
-            </a>
-            
-            <a href="#" class="menu-item">
-                <div class="icon-circle"><i class="fas fa-female"></i></div>
-                <span class="menu-label">Dress<br>Code</span>
-            </a>
-            
-            <a href="https://maps.app.goo.gl/MgS4fVxHpm9PGuzWA" target="_blank" class="menu-item">
-                <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
-                <span class="menu-label">Ver<br>Rota</span>
-            </a>
+        <div class="gift-item">
+            <div>
+                <div class="gift-name">Colar Ponto de Luz</div>
+                <div class="gift-price">Aprox. R$ 30,00</div>
+            </div>
+            <a href="LINK_DA_SHEIN_AQUI" target="_blank" class="btn-link">Ver Opção</a>
         </div>
 
+        <!-- CATEGORIA 2: BELEZA -->
+        <h3 class="category-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Beleza</h3>
+
+        <div class="gift-item">
+            <div>
+                <div class="gift-name">Kit Skincare</div>
+                <div class="gift-price">Aprox. R$ 40,00</div>
+            </div>
+            <a href="LINK_DA_SHEIN_AQUI" target="_blank" class="btn-link">Ver Opção</a>
+        </div>
+
+        <div class="gift-item">
+            <div>
+                <div class="gift-name">Maleta de Maquiagem</div>
+                <div class="gift-price">Aprox. R$ 145,00</div>
+            </div>
+            <a href="LINK_DA_SHEIN_AQUI" target="_blank" class="btn-link">Ver Opção</a>
+        </div>
+
+        <!-- CATEGORIA 3: QUARTO -->
+        <h3 class="category-title"><i class="fa-solid fa-bed"></i> Para o Quarto</h3>
+
+        <div class="gift-item">
+            <div>
+                <div class="gift-name">Luminária Lua 3D</div>
+                <div class="gift-price">Aprox. R$ 20,00</div>
+            </div>
+            <a href="LINK_DA_SHEIN_AQUI" target="_blank" class="btn-link">Ver Opção</a>
+        </div>
+
+        <!-- ÁREA DO PIX -->
+        <div class="pix-section">
+            <h2 class="pix-title">Presente via Pix</h2>
+            <p style="font-size: 0.9rem; margin-bottom: 15px;">Prefere dar a liberdade dela escolher? <br>Envie qualquer valor com amor!</p>
+            
+            <!-- COLOQUE SUA IMAGEM DO QR CODE NA PASTA IMG COM O NOME 'qrcode.png' -->
+            <!-- Se não tiver imagem, pode apagar a tag <img> abaixo -->
+            <img src="IMG/qrcode.png" alt="QR Code Pix" class="qrcode-img" onerror="this.style.display='none'">
+            
+            <div class="pix-key" id="chavePix">14998933492</div>
+            
+            <button class="btn-copy" onclick="copiarPix()">
+                <i class="fa-regular fa-copy"></i> Copiar Chave Pix
+            </button>
+        </div>
+
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Voltar ao Convite</a>
     </div>
 
-    <!-- Javascript Inline para evitar erros de referência -->
     <script src="js/presentes.js">
-  
+      
     </script>
+
 </body>
 </html>
