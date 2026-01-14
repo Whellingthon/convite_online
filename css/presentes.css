@@ -154,3 +154,21 @@ ESTILOS (TEMA AZUL MEDIEVAL)
         
         /* Espaçamento extra no fim */
         .spacer { height: 50px; }
+
+        /* Adicione isso no seu CSS para criar a máscara */
+.pix-key {
+    display: block; /* Garante que apareça */
+    width: 90%;     /* Limita a largura */
+    margin: 10px auto;
+    white-space: nowrap; /* Impede quebra de linha */
+    overflow: hidden;    /* Esconde o que sobrar */
+    text-overflow: ellipsis; /* Adiciona os "..." no final */
+    
+    /* Estilo visual para parecer um código */
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #aaa; /* Cor mais apagada para não chamar tanta atenção */
+    background: #1a1a1a;
+    padding: 5px;
+    border-radius: 4px;
+}

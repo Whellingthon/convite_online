@@ -104,22 +104,21 @@
             </div>
 
            
-            <div class="pix-container">
-                <div class="pix-icon-top"><i class="fa-brands fa-pix"></i></div>
-                <h2 class="pix-title">Presente via Pix</h2>
-                <p class="pix-desc">Prefere dar a liberdade para ela escolher?<br>Envie qualquer valor com carinho!</p>
-                
-                <!-- Certifique-se que o arquivo qrcode.png existe na pasta IMG -->
-                <div class="qrcode-box">
-                    <img src="IMG/qrcode.png" alt="QR Code Pix" class="qrcode-img" onerror="this.parentElement.style.display='none';">
-                </div>
+          <div class="pix-container">
+    <div class="pix-icon-top"><i class="fa-brands fa-pix"></i></div>
+    <h2 class="pix-title">Presente via Pix</h2>
+    <p class="pix-desc">Prefere dar a liberdade para ela escolher?<br>Envie qualquer valor com carinho!</p>
+    
+    <div class="qrcode-box">
+        <img src="IMG/qrcode.png" alt="QR Code Pix" class="qrcode-img" onerror="this.parentElement.style.display='none';">
+    </div>
 
-                <div class="pix-key" id="chavePix">14998933492</div>
+    <input type="hidden" id="chavePix" value="00020126360014BR.GOV.BCB.PIX0114+55149967084765204000053039865802BR5901N6001C62200516PresenteCaroliny6304E07C">
 
-                <button class="btn-copy" onclick="copiarPix()">
-                    <i class="fa-regular fa-copy"></i> Copiar Chave
-                </button>
-            </div>
+    <button class="btn-copy" onclick="copiarPix()">
+        <i class="fa-regular fa-copy"></i> Copiar Chave Pix
+    </button>
+</div>
 
             <a href="index.html" class="back-link">
                 <i class="fa-solid fa-arrow-left"></i> Voltar ao Convite
