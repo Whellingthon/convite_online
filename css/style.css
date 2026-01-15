@@ -125,11 +125,11 @@ body {
 
 .mirror-container {
     position: relative; z-index: 10; width: 85%; max-width: 380px;
-  /* Topo: 30px | Direita: 20px | BAIXO: 50px | Esquerda: 20px */
-padding: 30px 20px 50px 20px;
+    padding: 30px 20px; margin-bottom: 80px;
     border: 3px solid #c5a059; border-radius: 20px;
     background: rgba(12, 45, 120, 0.65);
-    -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     box-shadow: 0 0 20px rgba(197, 160, 89, 0.6), inset 0 0 40px rgba(0,0,0,0.6);
     text-align: center; color: #fff;
 }
