@@ -2,21 +2,45 @@
    CONFIGURAÇÕES GERAIS
    ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background-color: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Montserrat', sans-serif; overflow: hidden; }
+
+/* Adicionado html para garantir altura correta */
+html { height: 100%; }
+
+body { 
+    background-color: #000; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    /* Mudança aqui: usamos min-height com dvh para garantir ajuste móvel */
+    min-height: 100vh;
+    min-height: 100dvh; 
+    font-family: 'Montserrat', sans-serif; 
+    overflow: hidden; 
+}
 
 /* Container do Celular */
 .phone-container {
-    width: 100%; max-width: 420px; height: 100vh; position: relative;
-    background: #000; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,100,0.5);
+    width: 100%; 
+    max-width: 420px; 
+    
+    /* AQUI ESTÁ A MÁGICA PARA O CHROME MOBILE */
+    height: 100vh;           /* Fallback para navegadores antigos */
+    height: 100dvh;          /* Altura dinâmica real */
+    max-height: -webkit-fill-available; /* Ajuste para motores Webkit */
+    
+    position: relative;
+    background: #000; 
+    overflow: hidden; 
+    box-shadow: 0 0 20px rgba(0,0,100,0.5);
     /* Transição suave para saída da página */
     transition: opacity 0.5s ease;
 }
+
 .medievalsharp-regular {
   font-family: "MedievalSharp", cursive;
   font-weight: 400;
   font-style: normal;
 }
-
 /* =========================================
    CAMADA 1: VÍDEOS (CAPA)
    ========================================= */

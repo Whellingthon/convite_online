@@ -2,24 +2,25 @@
    ESTILOS (TEMA AZUL MEDIEVAL)
    ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body { 
     background-color: #000; 
     display: flex; 
     justify-content: center; 
     align-items: flex-start;
+    /* Garante que o fundo cubra tudo sem esticar demais */
     min-height: 100vh; 
+    min-height: 100dvh;
     font-family: 'Montserrat', sans-serif; 
     overflow-x: hidden;
 }
 
-/* Container Principal (Estilo Celular) */
 .phone-container {
-    width: 100%; max-width: 420px; min-height: 100vh; position: relative;
-    background: url('https://images.unsplash.com/photo-1597843787754-080c2f6d5395?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
-    background-attachment: fixed;
-    box-shadow: 0 0 20px rgba(0,0,100,0.5);
-    padding-bottom: 40px;
+    width: 100%; max-width: 420px; 
+    /* Removemos height fixa aqui para deixar o conteudo crescer */
+    min-height: 100vh; 
+    min-height: 100dvh;
+    position: relative;
+    /* Restante do código igual... */
 }
 
 /* Máscara Azul para leitura */
