@@ -81,11 +81,6 @@ body { background-color: #000; display: flex; justify-content: center; align-ite
 
 /* =========================================
    CAMADA 2: O CONVITE FINAL
-/* ... existing code ... */
-
-
-/* =========================================
-   CAMADA 2: O CONVITE FINAL
    ========================================= */
 #main-content {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -162,4 +157,61 @@ body { background-color: #000; display: flex; justify-content: center; align-ite
     0% { transform: translateY(100vh) scale(0); opacity: 0; }
     20% { opacity: 1; transform: translateY(80vh) scale(1); }
     100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+
+/* =========================================
+   NOVO: ESTILOS DO MODAL DE AVISO
+   ========================================= */
+#modal-aviso {
+    display: none; /* Começa invisível */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7); /* Fundo escuro */
+    z-index: 9999; /* Acima de tudo */
+    justify-content: center; align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-conteudo {
+    background-color: rgba(12, 45, 120, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    border-color: #c5a059; border-width: 2px; border-style: solid;
+    width: 85%; max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: surgir 0.3s ease-out;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-conteudo h3 {
+    color: white;
+    margin-top: 10px;
+    font-family: 'Cinzel', serif;
+}
+
+.modal-conteudo p {
+    color: #ddd;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.btn-fechar {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.btn-fechar:hover { background-color: #e91e63; }
+
+@keyframes surgir {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }

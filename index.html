@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Convite 15 Anos - Caroliny</title>
     
+    <!-- Ícones FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=MedievalSharp&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
+    <!-- Seu arquivo de estilo externo -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -65,8 +67,7 @@
                 </div>
 
                 <div class="location-text">
-                    R. Alvaro Borges da Cunha, 3 - 90 <br>
-                    Sítios de Recreio Letícia
+                    Chácara Lua De Prata
                 </div>
 
                 <img src="IMG/sapato.png" class="glass-slipper" alt="Sapatinho">
@@ -84,21 +85,34 @@
                     <span class="menu-label">Sugestão de<br>Presente</span>
                 </a>
                 
-                <a href="#" class="menu-item">
+                <!-- ALTERADO: Link Trajes agora chama a função JS -->
+                <a href="javascript:void(0)" class="menu-item" onclick="abrirAviso()">
                     <div class="icon-circle"><i class="fas fa-female"></i></div>
-                    <span class="menu-label">Dress<br>Code</span>
+                    <span class="menu-label">Trajes<br></span>
                 </a>
                 
                 <a href="https://maps.app.goo.gl/MgS4fVxHpm9PGuzWA" target="_blank" rel="noopener" class="menu-item">
                     <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
-                    <span class="menu-label">Ver<br>Rota</span>
+                    <span class="menu-label">Como<br>Chegar</span>
                 </a>
             </div>
         </div>
 
     </div>
 
+    <!-- NOVO: Estrutura do Modal de Aviso -->
+    <!-- Ele fica fora do phone-container para garantir que o overlay cubra a tela toda -->
+    <div id="modal-aviso" onclick="fecharAviso(event)">
+        <div class="modal-conteudo">
+            <i class="fas fa-tshirt" style="font-size: 40px; color: #e91e63; margin-bottom: 15px;"></i>
+            <h3>Atenção ao Dress Code</h3>
+            <p>Traje sugerido: Social
+Gentilmente pedimos <strong>evitar tons de azul.</strong>.</p>
+            <button class="btn-fechar" onclick="fecharAviso(null)">Entendido</button>
+        </div>
+    </div>
    
+    <!-- Seu arquivo de script externo -->
     <script src="js/index.js"></script>
 </body>
 </html>

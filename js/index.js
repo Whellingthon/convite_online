@@ -79,3 +79,22 @@ function criarParticulas() {
         container.appendChild(p);
     }
 }
+
+/* =========================================
+   NOVO: LÓGICA DO MODAL DE AVISO
+   ========================================= */
+
+function abrirAviso() {
+    const modal = document.getElementById('modal-aviso');
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
+
+function fecharAviso(event) {
+    const modal = document.getElementById('modal-aviso');
+    // Se o evento for nulo (botão fechar) ou o target for o fundo escuro
+    if (modal && (!event || event.target.id === 'modal-aviso')) {
+        modal.style.display = 'none';
+    }
+}
